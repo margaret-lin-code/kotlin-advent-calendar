@@ -1,5 +1,5 @@
 fun main() {
-    // 1. read 1_input file
+    // 1. read 1_input.txt file
     // separate each line as int
     // assumption: all are int
 
