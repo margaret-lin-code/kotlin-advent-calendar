@@ -15,20 +15,20 @@ fun main() {
 }
 
 
-var input = readInput("aoc_2022/day02_input.txt").map {
+private var input = readInput("aoc_2022/day02_input.txt").map {
     val (a, b) = it.split(" ")
     a[0] to b[0]
 
     // [(A, Y), (B, X), (C, Z)]
 }
 
-fun part1(): Int {
+private fun part1(): Int {
     return input.sumOf { (opponent, you) ->
         calculateScore(opponent.toGesture(), you.toGesture())
     }
 }
 
-fun part2(): Int {
+private fun part2(): Int {
     return input.sumOf { (opponent, you) ->
         val yourHand = handForDesiredOutcome(opponent.toGesture(), you.toOutcome())
         calculateScore(opponent.toGesture(), yourHand)
@@ -36,7 +36,7 @@ fun part2(): Int {
 }
 
 
-fun calculateScore(opponent: Gesture, me: Gesture): Int {
+private fun calculateScore(opponent: Gesture, me: Gesture): Int {
     val outcome = calculateOutcome(me, opponent)
     return me.points + outcome.points
 }
@@ -47,13 +47,13 @@ enum class Outcome(val points: Int) {
     LOSS(0)
 }
 
-fun calculateOutcome(first: Gesture, second: Gesture): Outcome = when {
+private fun calculateOutcome(first: Gesture, second: Gesture): Outcome = when {
     first == second -> DRAW
     first.beats() == second -> WIN
     else -> LOSS
 }
 
-fun handForDesiredOutcome(opponent: Gesture, desiredOutcome: Outcome): Gesture {
+private fun handForDesiredOutcome(opponent: Gesture, desiredOutcome: Outcome): Gesture {
     return when (desiredOutcome) {
         DRAW -> opponent
         LOSS -> opponent.beats()
