@@ -16,9 +16,11 @@ fun readInputs(name: String): List<String> = File("src/main/resources", "$name.t
 /**
  * Reads lines from the given input txt file.
  */
-fun readInput(name: String) = File("src", "$name")
+fun readInput(name: String) = File("src/main/resources", "$name")
     .readLines()
 
+
+fun readInputByText(name: String) = File("src/main/resources", "$name").readText()
 /**
  * Converts string to md5 hash.
  */
