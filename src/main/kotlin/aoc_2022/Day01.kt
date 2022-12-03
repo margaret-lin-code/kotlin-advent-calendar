@@ -36,13 +36,13 @@ fun main() {
 
 
 
-    val testInput = File("src/main/resources/aoc_2022/1_test_input.txt").readText()
+    val testInput = File("src/main/resources/aoc_2022/day01_test_input.txt").readText()
     check(part1(testInput) == 24000)
 //    println(testInput.split("\n\n"))
 
 
 
-    val input = File("src/main/resources/aoc_2022/1_input.txt").readText()
+    val input = File("src/main/resources/aoc_2022/day01_input.txt").readText()
     println(part1(input))
     println(part2(input))
 
